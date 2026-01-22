@@ -56,11 +56,28 @@ Server starts at http://127.0.0.1:8000/
 
 
 ## API
-Router is mounted at `/api/` in [UserManagement/UserManagement/urls.py](UserManagement/UserManagement/urls.py). The `users` endpoints are defined via a `DefaultRouter` in [UserManagement/users/urls.py](UserManagement/users/urls.py) and served by `UserViewSet` in [UserManagement/users/views.py](UserManagement/users/views.py).
 
-Model and serializer:
-- Model: [UserManagement/users/models.py](UserManagement/users/models.py)
-- Serializer: [UserManagement/users/serializers.py](UserManagement/users/serializers.py) (validates unique `email`)
+All API endpoints are exposed under the `/api/` path.
+
+The API routing is configured using Django REST Framework **ViewSets and Routers** to ensure clean and scalable endpoint management.
+
+- The main API router is mounted at `/api/` in  
+  `UserManagement/UserManagement/urls.py`.
+- The `users` endpoints are registered using a `DefaultRouter` in  
+  `UserManagement/users/urls.py`.
+- All user-related API logic is handled by the `UserViewSet` defined in  
+  `UserManagement/users/views.py`.
+
+### Model and Serializer
+
+- **User Model**:  
+  Defined in `UserManagement/users/models.py`.  
+  It includes fields such as `username`, `email`, `first_name`, `last_name`, and `date_joined`.
+
+- **User Serializer**:  
+  Implemented in `UserManagement/users/serializers.py`.  
+  The serializer is responsible for serializing and deserializing user data and includes field-level validation, such as enforcing the uniqueness of the `email` field.
+
 
 ### Endpoints
 - GET `/api/users/`: List users
@@ -74,10 +91,10 @@ Create a user
 curl -X POST http://127.0.0.1:8000/api/users/ \
 	-H "Content-Type: application/json" \
 	-d '{
-		"username": "jdoe",
-		"email": "jdoe@example.com",
-		"first_name": "John",
-		"last_name": "Doe"
+		"username": "Nikita",
+        "email": "nikitasinghak257@gmail.com",
+        "first_name": "Nikita",
+        "last_name": "Kumari",
 	}'
 ```
 
@@ -85,10 +102,10 @@ Sample response
 ```json
 {
 	"id": 1,
-	"username": "jdoe",
-	"email": "jdoe@example.com",
-	"first_name": "John",
-	"last_name": "Doe",
+	"username": "Nikita",
+	"email": "nikitasinghak257@gmail.com",
+	"first_name": "Nikita",
+	"last_name": "Kumari",
 	"date_joined": "2026-01-22T12:34:56Z"
 }
 ```
