@@ -2,6 +2,17 @@
 
 A simple, user management REST API built with Django and Django REST Framework. It provides CRUD operations for a custom `User` model with unique email validation and clean router-based URLs.
 
+## How to Use the API
+
+The application exposes REST APIs using Django REST Framework. The APIs can be accessed via the live deployment URL.
+
+### Base URL
+https://usermanagement-project-y6g9.onrender.com/
+
+### 1. API Root
+To view available API endpoints:
+https://usermanagement-project-y6g9.onrender.com/api/
+
 ## Overview
 - Frameworks: Django, Django REST Framework
 - App: `users` with `User` model: `username`, `email`, `first_name`, `last_name`, `date_joined`
